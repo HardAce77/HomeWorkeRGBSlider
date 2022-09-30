@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+    
     @IBOutlet var redLabel: UILabel!
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
+    
     @IBOutlet var rgbView: UIView!
 
     override func viewDidLoad() {
@@ -26,14 +28,17 @@ class ViewController: UIViewController {
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
-        redLabel.text = redSlider.value.formatted()
-        greenLabel.text = greenSlider.value.formatted()
-        blueLabel.text = blueSlider.value.formatted()
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
         setColor()
     }
     
     private func setColor() {
-        rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
+                                          green: CGFloat(greenSlider.value),
+                                          blue: CGFloat(blueSlider.value),
+                                          alpha: 1)
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
