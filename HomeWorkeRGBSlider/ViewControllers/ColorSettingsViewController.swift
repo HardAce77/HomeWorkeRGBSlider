@@ -30,11 +30,32 @@ class ColorSettingsViewController: UIViewController {
         getColorComponent()
         setValue()
         setColor()
+        addToolBar()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    @IBAction func sliderAction(_ sender: UISlider) {
+        switch sender.tag {
+        case 0:
+            redLabel.text = string(from: sender)
+            textFields[sender.tag].text = string(from: sender)
+        case 1:
+            greenLabel.text = string(from: sender)
+            textFields[sender.tag].text = string(from: sender)
+        default:
+            blueLabel.text = string(from: sender)
+            textFields[2].text = string(from: sender)
+        }
+        setColor()
+    }
+    
+    @IBAction func doneButtonPressed() {
+        delegate.setNewColor(from: rgbView)
+        dismiss(animated: true)
     }
     
     private func setColor() {
@@ -70,42 +91,59 @@ class ColorSettingsViewController: UIViewController {
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
-    
-    @IBAction func sliderAction(_ sender: UISlider) {
-        switch sender.tag {
-        case 0:
-            redLabel.text = string(from: sender)
-            textFields[sender.tag].text = string(from: sender)
-        case 1:
-            greenLabel.text = string(from: sender)
-            textFields[sender.tag].text = string(from: sender)
-        default:
-            blueLabel.text = string(from: sender)
-            textFields[2].text = string(from: sender)
-        }
-        setColor()
-    }
-    
-    @IBAction func doneButtonPressed() {
-        delegate.setNewColor(from: rgbView)
-        dismiss(animated: true)
-    }
 }
 
 extension ColorSettingsViewController: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
         guard let textFromTF = textField.text else { return }
-        guard let text = Float(textFromTF) else { return }
-        switch textField.tag {
-        case 0:
-            redSlider.value = text
-        case 1:
-            greenSlider.value = text
-        default:
-            blueSlider.value = text
-        }
+        guard let number = formatter.number(from: textFromTF) else { return }
+            switch textField.tag {
+            case 0:
+                redSlider.value = number.floatValue
+            case 1:
+                greenSlider.value = number.floatValue
+            default:
+                blueSlider.value = number.floatValue
+            }
         setValue()
         setColor()
+    }
+    
+    func showAlert(with title: String, andMessage message: String, forTextField textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let oKAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            textField?.becomeFirstResponder()
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.clearsOnBeginEditing = true
+        return true
+    }
+    
+    func addToolBar() {
+        let toolBar = UIToolbar()
+        let flexSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(doneButtonAction)
+        )
+        toolBar.setItems([flexSpace, doneButton], animated: false)
+        toolBar.sizeToFit()
+        textFields.forEach { $0.inputAccessoryView = toolBar }
+    }
+    
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
     }
 }
 

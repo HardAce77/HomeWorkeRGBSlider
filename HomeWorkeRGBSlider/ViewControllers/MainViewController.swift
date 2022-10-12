@@ -13,8 +13,6 @@ protocol ColorSettingsViewControllerDelegate {
 
 class MainViewController: UIViewController {
     
-    var viewColor: UIColor!
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
