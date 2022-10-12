@@ -98,8 +98,18 @@ extension ColorSettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
-        guard let textFromTF = textField.text else { return }
-        guard let number = formatter.number(from: textFromTF) else { return }
+        guard let textFromTF = textField.text, !textFromTF.isEmpty else {
+            showAlert(with: "Ошибка",
+                      andMessage: "Введите значение",
+                      forTextField: textField)
+            return
+        }
+        guard let number = formatter.number(from: textFromTF) else {
+            showAlert(with: "Ошибка",
+                      andMessage: "Неправильный формат числа",
+                      forTextField: textField)
+            return
+        }
             switch textField.tag {
             case 0:
                 redSlider.value = number.floatValue
@@ -117,6 +127,8 @@ extension ColorSettingsViewController: UITextFieldDelegate {
         let oKAction = UIAlertAction(title: "Ok", style: .default) { _ in
             textField?.becomeFirstResponder()
         }
+        alert.addAction(oKAction)
+        present(alert, animated: true)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
