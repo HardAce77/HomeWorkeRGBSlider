@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ColorViewController: UIViewController {
     
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
@@ -51,6 +51,10 @@ class ViewController: UIViewController {
             blueLabel.text = String(format: "%.2f", sender.value)
         }
         setColor()
+    }
+    
+    @IBAction func doneButtonPressed() {
+        dismiss(animated: true)
     }
 
 }

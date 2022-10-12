@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		8141B0A228E0D54B009C0165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141B0A128E0D54B009C0165 /* AppDelegate.swift */; };
 		8141B0A428E0D54B009C0165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141B0A328E0D54B009C0165 /* SceneDelegate.swift */; };
-		8141B0A628E0D54B009C0165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141B0A528E0D54B009C0165 /* ViewController.swift */; };
+		8141B0A628E0D54B009C0165 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141B0A528E0D54B009C0165 /* ColorViewController.swift */; };
 		8141B0A928E0D54B009C0165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8141B0A728E0D54B009C0165 /* Main.storyboard */; };
 		8141B0AB28E0D54D009C0165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8141B0AA28E0D54D009C0165 /* Assets.xcassets */; };
 		8141B0AE28E0D54D009C0165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8141B0AC28E0D54D009C0165 /* LaunchScreen.storyboard */; };
+		81EC726028F6DAB400360433 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC725F28F6DAB400360433 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8141B09E28E0D54B009C0165 /* HomeWorkeRGBSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWorkeRGBSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8141B0A128E0D54B009C0165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8141B0A328E0D54B009C0165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8141B0A528E0D54B009C0165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8141B0A528E0D54B009C0165 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		8141B0A828E0D54B009C0165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8141B0AA28E0D54D009C0165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8141B0AD28E0D54D009C0165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8141B0AF28E0D54D009C0165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81EC725F28F6DAB400360433 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		8141B0A028E0D54B009C0165 /* HomeWorkeRGBSlider */ = {
 			isa = PBXGroup;
 			children = (
-				8141B0A128E0D54B009C0165 /* AppDelegate.swift */,
-				8141B0A328E0D54B009C0165 /* SceneDelegate.swift */,
-				8141B0A528E0D54B009C0165 /* ViewController.swift */,
-				8141B0A728E0D54B009C0165 /* Main.storyboard */,
+				81EC725D28F6D68300360433 /* Config */,
+				81EC725E28F6D6D400360433 /* ViewControllers */,
+				81EC725C28F6D63300360433 /* Storyboards */,
 				8141B0AA28E0D54D009C0165 /* Assets.xcassets */,
-				8141B0AC28E0D54D009C0165 /* LaunchScreen.storyboard */,
-				8141B0AF28E0D54D009C0165 /* Info.plist */,
 			);
 			path = HomeWorkeRGBSlider;
+			sourceTree = "<group>";
+		};
+		81EC725C28F6D63300360433 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8141B0A728E0D54B009C0165 /* Main.storyboard */,
+				8141B0AC28E0D54D009C0165 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		81EC725D28F6D68300360433 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8141B0A128E0D54B009C0165 /* AppDelegate.swift */,
+				8141B0A328E0D54B009C0165 /* SceneDelegate.swift */,
+				8141B0AF28E0D54D009C0165 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		81EC725E28F6D6D400360433 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8141B0A528E0D54B009C0165 /* ColorViewController.swift */,
+				81EC725F28F6DAB400360433 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8141B0A628E0D54B009C0165 /* ViewController.swift in Sources */,
+				8141B0A628E0D54B009C0165 /* ColorViewController.swift in Sources */,
 				8141B0A228E0D54B009C0165 /* AppDelegate.swift in Sources */,
 				8141B0A428E0D54B009C0165 /* SceneDelegate.swift in Sources */,
+				81EC726028F6DAB400360433 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +317,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4HLNAPRS4C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeWorkeRGBSlider/Info.plist;
+				INFOPLIST_FILE = HomeWorkeRGBSlider/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4HLNAPRS4C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeWorkeRGBSlider/Info.plist;
+				INFOPLIST_FILE = HomeWorkeRGBSlider/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
